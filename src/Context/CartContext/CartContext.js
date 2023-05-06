@@ -8,7 +8,9 @@ const CartContext = createContext();
 export const actions = {
   ADD_PRODUCTS: "ADD_PRODUCTS",
   ADD_TO_CART: "ADD_TO_CART",
-  REMOVE_FROM_CART: "REMOVE_FROM_CART"
+  REMOVE_FROM_CART: "REMOVE_FROM_CART",
+  INC_CHANGE_CART_QTY: "INC_CHANGE_CART_QTY",
+  DEC_CART_QTY: "DEC_CART_QTY"
 };
 
 export const CartContextProvider = ({ children }) => {

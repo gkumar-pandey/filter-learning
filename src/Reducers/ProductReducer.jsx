@@ -10,6 +10,29 @@ const productReducer = (state, action) => {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload)
       };
+    case actions.INC_CHANGE_CART_QTY:
+      return {
+        ...state,
+        cart: state.cart.reduce(
+          (acc, curr) =>
+            curr.id === action.payload
+              ? [...acc, { ...curr, qty: curr.qty + 1 }]
+              : [...acc, curr],
+          []
+        )
+      };
+    case actions.DEC_CART_QTY:
+      return {
+        ...state,
+        cart: state.cart.reduce(
+          (acc, curr) =>
+            curr.id === action.payload
+              ? [...acc, { ...curr, qty: curr.qty - 1 }]
+              : [...acc, curr],
+          []
+        )
+      };
+
     default:
       return state;
   }
