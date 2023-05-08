@@ -5,8 +5,7 @@ import CartProductsDetails from "../../Components/CartProductsDetails/CartProduc
 
 const Cart = () => {
   const {
-    state: { cart },
-    dispatch
+    state: { cart }
   } = useCart();
   return (
     <div className="pt-20 flex  ">

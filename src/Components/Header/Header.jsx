@@ -2,13 +2,15 @@ import React from "react";
 import { BsCartFill } from "react-icons/bs";
 import { useCart } from "../../Context";
 import { Link } from "react-router-dom";
+import { filterActions } from "../../Context/CartContext/CartContext";
 
 const Header = () => {
   const {
-    state: { cart }
+    state: { cart },
+    filterDispatch
   } = useCart();
   return (
-    <div className="text-white bg-slate-800 font-sans flex items-center justify-around p-4 fixed w-full z-20 ">
+    <div className="text-white bg-slate-800 font-sans flex items-center justify-around p-4 fixed w-full ">
       <div>
         <Link to="/">
           <h2 className=" font-bold text-xl ">Shopping</h2>
@@ -17,8 +19,14 @@ const Header = () => {
 
       <input
         type="text"
-        placeholder="search.."
-        className=" rounded text-black py-1 px-2 w-1/5 font-sans text-sm focus:outline-none "
+        placeholder="Search.."
+        className=" rounded text-black py-1 px-2 w-1/5 font-sans text-lg focus:outline-none cursor-default "
+        onChange={(e) =>
+          filterDispatch({
+            type: filterActions.FILTER_BY_SEARCH,
+            payload: e.target.value
+          })
+        }
       />
 
       <div className=" cursor-pointer  relative  ">

@@ -9,10 +9,10 @@ const ProductCard = (props) => {
     dispatch
   } = useCart();
   return (
-    <div className="w-1/5 m-4 rounded  border border-gray-400 ">
+    <div className="w-1/5 h-fit m-4 rounded  border border-gray-400 ">
       <div>
         <div>
-          <img src={image} />
+          <img src={image} alt={name} />
         </div>
         <div className="p-2">
           <p>{name}</p>
